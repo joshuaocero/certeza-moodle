@@ -1,0 +1,50 @@
+// ===== CERTEZA — Bootstrap variable overrides =====
+// Applied before Boost's SCSS so Bootstrap uses these values throughout.
+
+$font-family-sans-serif: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-size-base:         0.875rem; // 14px
+
+// Brand palette
+$primary:   #4f46e5;
+$secondary: #94a3b8;
+$success:   #10b981;
+$warning:   #f59e0b;
+$danger:    #ef4444;
+$info:      #3b82f6;
+$light:     #f1f5f9;
+$dark:      #1e293b;
+
+// Body
+$body-bg:    #f1f5f9;
+$body-color: #0f172a;
+$link-color: #4f46e5;
+
+// Border radius
+$border-radius:    0.5rem;   // 8px
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.75rem;  // 12px
+
+// Cards
+$card-bg:            #ffffff;
+$card-border-color:  #e2e8f0;
+$card-border-radius: 0.75rem;
+$card-cap-bg:        #f8fafc;
+
+// Inputs
+$input-bg:                 #ffffff;
+$input-border-color:       #e2e8f0;
+$input-focus-border-color: #4f46e5;
+$input-focus-box-shadow:   0 0 0 3px rgba(79, 70, 229, 0.12);
+
+// Buttons
+$btn-font-weight:   600;
+$btn-border-radius: 0.5rem;
+
+// Navbar
+$navbar-light-color:        #475569;
+$navbar-light-active-color: #4f46e5;
+$navbar-light-brand-color:  #4f46e5;
+$navbar-padding-y:          0;
+
+// Sidebar / nav drawer
+$drawer-bg: #ffffff;

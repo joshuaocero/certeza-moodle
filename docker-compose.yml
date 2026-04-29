@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: moodle-postgres
+    environment:
+      POSTGRES_DB: moodle
+      POSTGRES_USER: moodle
+      POSTGRES_PASSWORD: moodlepass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U moodle"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  moodle:
+    build: .
+    container_name: moodle-app
+    ports:
+      - "8080:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - MOODLE_WWWROOT=http://localhost:8080
+      - DB_HOST=db
+      - DB_NAME=moodle
+      - DB_USER=moodle
+      - DB_PASS=moodlepass
+      - MOODLE_ADMIN_USER=admin
+      - MOODLE_ADMIN_PASS=Admin1234!
+      - MOODLE_ADMIN_EMAIL=admin@example.com
+      - MOODLE_SITE_NAME=My Moodle
+    volumes:
+      - moodledata:/var/moodledata
+      - moodleconfig:/var/moodleconfig
+      - ./theme/certeza:/var/www/html/theme/certeza
+
+volumes:
+  pgdata:
+  moodledata:
+  moodleconfig:
