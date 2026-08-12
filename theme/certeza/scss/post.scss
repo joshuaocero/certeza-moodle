@@ -390,6 +390,22 @@ a { color: var(--brand); }
     padding: 16px 24px;
 }
 
+// ── Activity completion ────────────────────────────────────────
+// Move the "Mark as done" control (rendered inside .activity-header,
+// a sibling of the activity content within #region-main) to the
+// bottom of the page instead of directly under the title.
+#region-main:has(> .activity-header) {
+    display: flex;
+    flex-direction: column;
+
+    > .activity-header {
+        order: 100;
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--gray-200);
+    }
+}
+
 // ── Responsive ─────────────────────────────────────────────────
 @media (max-width: 900px) {
     #page-content,
